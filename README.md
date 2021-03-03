@@ -56,7 +56,7 @@
 ```
 ### 启动服务端项目
 
-启动项目后
+通过 `JapDemoVueApplication` 启动 Java 服务端项目
 
 ### 启动 web 端项目
 
