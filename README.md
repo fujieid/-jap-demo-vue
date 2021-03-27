@@ -6,13 +6,13 @@
 </p>
 <p align="center">
 	<a target="_blank" href="https://search.maven.org/search?q=jap">
-	  <img src="https://img.shields.io/badge/Maven%20Central-1.0.0-blue" ></img>
+	  <img src="https://img.shields.io/badge/Maven%20Central-1.0.1%20alpha.1-blue" ></img>
 	</a>
 	<a target="_blank" href="https://gitee.com/yadong.zhang/JustAuth/blob/master/LICENSE">
 	  <img src="https://img.shields.io/badge/license-LGPL%203.0-red" ></img>
 	</a>
 	<a target="_blank" href="https://apidoc.gitee.com/fujieid/jap" title="API文档">
-	  <img src="https://img.shields.io/badge/Api%20Docs-1.0.0-orange" ></img>
+	  <img src="https://img.shields.io/badge/Api%20Docs-latest-orange" ></img>
 	</a>
 	<a target="_blank" href="https://justauth.plus" title="开发文档">
 	  <img src="https://img.shields.io/badge/Docs-latest-blueviolet.svg" ></img>
@@ -36,12 +36,14 @@
   </a>
 </p>
 <p align="center">
-	<strong>开源地址：</strong> <a target="_blank" href='https://gitee.com/fujieid/jap'>Gitee</a> | <a target="_blank" href='https://github.com/fujieid/jap'>Github</a>
+	<strong>开源地址：</strong> <a target="_blank" href='https://gitee.com/fujieid/jap'>Gitee</a> | <a target="_blank" href='https://github.com/fujieid/jap'>Github</a> | <a target="_blank" href='https://codechina.csdn.net/fujieid/jap'>CodeChina</a>
 </p>
 <p align="center">
-	<strong>官方网站（Wiki）：</strong> <a target="_blank" href='https://justauth.plus'>https://justauth.plus</a>
+	<strong>社区论坛：</strong> <a target="_blank" href='https://bbs.justauth.plus'>https://bbs.justauth.plus</a>
 </p>
-
+<p align="center">
+	<strong>开发者中心：</strong> <a target="_blank" href='https://justauth.plus'>https://justauth.plus</a>
+</p>
 
 ## 可选 Demo
 
