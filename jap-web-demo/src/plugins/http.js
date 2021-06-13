@@ -11,7 +11,7 @@ axios.defaults.headers.delete['Content-Type'] = 'application/json;charse=UTF-8'
 // 每个请求加上Token
 axios.interceptors.request.use(config => {
   config.headers['Authorization'] = storage.getToken()
-  config.timeout = 30000
+  config.timeout = 300000
   config.timeoutErrorMessage = '资源服务器暂不可用！'
   return config
 })
@@ -26,6 +26,7 @@ axios.interceptors.response.use(
     if (code === 200) {
       return response.data || {}
     }
+    alert(response.data.message)
     return Promise.reject({
       message: response.data.message
     })

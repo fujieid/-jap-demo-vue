@@ -20,29 +20,32 @@ export default {
     return {
       msg: 'Social Callback',
       code: null,
-      state: null
+      state: null,
+      platform: null
     }
   },
   mounted () {
     const code = this.$route.query.code
     const state = this.$route.query.state
+    const platform = this.$route.params.platform
     this.code = code
     this.state = state
-    console.log(code, state)
+    this.platform = platform
+    console.log(code, state, platform)
     if(code) {
       this.socialLogin({
         code: code,
         state: state
-      })
+      }, platform)
     } else {
       // 非法的回调
     }
   },
   methods: {
-    async socialLogin (param) {
+    async socialLogin (param, platform) {
       try {
         const result = await this.$http.post(
-            '/api/social/login/gitee',
+            '/api/social/login/' + platform,
             qs.stringify(param)
         )
         const data = result.data

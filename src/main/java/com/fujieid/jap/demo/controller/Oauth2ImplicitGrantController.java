@@ -39,12 +39,12 @@ public class Oauth2ImplicitGrantController implements InitializingBean {
         OAuthConfig config = new OAuthConfig();
         config.setPlatform("jai")
                 .setState(UuidUtils.getUUID())
-                .setClientId("xx")
-                .setClientSecret("xx")
-                .setCallbackUrl("http://sso.jap.com:8080/callback/oauthImplicit")
-                .setAuthorizationUrl("xx")
-                .setTokenUrl("xx")
-                .setUserinfoUrl("xx")
+                .setClientId("ieh5qufg4djbbjlz2hp2a1g6gysr7l4h")
+                .setClientSecret("k4eapuumzn8jo14u6epl7w1s2rv0ja8ri5wsl2vf")
+                .setCallbackUrl("http://sso.jap.com:8080/callback/oauth")
+                .setAuthorizationUrl("http://localhost:8081/oauth/authorize")
+                .setTokenUrl("http://localhost:8081/oauth/token")
+                .setUserinfoUrl("http://localhost:8081/oauth/userinfo")
                 .setScopes(new String[]{"read", "write"})
                 // 修改 ResponseType 为 Token 模式
                 .setResponseType(Oauth2ResponseType.token);

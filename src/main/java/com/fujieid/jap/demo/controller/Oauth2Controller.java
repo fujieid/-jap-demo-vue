@@ -3,10 +3,7 @@ package com.fujieid.jap.demo.controller;
 import com.fujieid.jap.core.JapUserService;
 import com.fujieid.jap.core.result.JapResponse;
 import com.fujieid.jap.demo.config.JapConfigContext;
-import com.fujieid.jap.oauth2.OAuthConfig;
-import com.fujieid.jap.oauth2.Oauth2GrantType;
-import com.fujieid.jap.oauth2.Oauth2ResponseType;
-import com.fujieid.jap.oauth2.Oauth2Strategy;
+import com.fujieid.jap.oauth2.*;
 import me.zhyd.oauth.utils.UuidUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,19 +33,20 @@ public class Oauth2Controller implements InitializingBean {
     @RequestMapping("/login/jai")
     public JapResponse renderAuth(HttpServletRequest request, HttpServletResponse response) throws IOException {
         JapConfigContext.strategy = "oauth2";
-        OAuthConfig config = new OAuthConfig();
-        config.setPlatform("jai")
+        return oauth2Strategy.authenticate(new OAuthConfig()
+                .setPlatform("jai")
                 .setState(UuidUtils.getUUID())
-                .setClientId("xx")
-                .setClientSecret("xx")
+                .setClientId("ieh5qufg4djbbjlz2hp2a1g6gysr7l4h")
+                .setClientSecret("k4eapuumzn8jo14u6epl7w1s2rv0ja8ri5wsl2vf")
                 .setCallbackUrl("http://sso.jap.com:8080/callback/oauth")
-                .setAuthorizationUrl("xx")
-                .setTokenUrl("xx")
-                .setUserinfoUrl("xx")
+                .setAuthorizationUrl("http://localhost:8081/oauth/authorize")
+                .setTokenUrl("http://localhost:8081/oauth/token")
+                .setUserinfoUrl("http://localhost:8081/oauth/userinfo")
                 .setScopes(new String[]{"read", "write"})
                 .setResponseType(Oauth2ResponseType.code)
-                .setGrantType(Oauth2GrantType.authorization_code);
-        return oauth2Strategy.authenticate(config, request, response);
+                .setAccessTokenEndpointMethodType(Oauth2EndpointMethodType.GET)
+                .setUserInfoEndpointMethodType(Oauth2EndpointMethodType.GET)
+                .setGrantType(Oauth2GrantType.authorization_code), request, response);
     }
 
     /**

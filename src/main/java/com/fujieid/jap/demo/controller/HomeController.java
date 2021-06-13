@@ -9,7 +9,6 @@ import com.fujieid.jap.core.JapUser;
 import com.fujieid.jap.core.context.JapAuthentication;
 import com.fujieid.jap.core.result.JapResponse;
 import com.fujieid.jap.demo.config.JapConfigContext;
-import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -38,7 +38,7 @@ public class HomeController {
 
     private JapResponse toIndex(HttpServletRequest request, HttpServletResponse response) {
         JapUser japUser = JapAuthentication.getUser(request, response);
-        Map<String, Object> result = Maps.newHashMap();
+        Map<String, Object> result = new HashMap<>();
         String userJson = null;
         if (null != japUser) {
             userJson = claimsToJson(japUser);

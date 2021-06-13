@@ -34,17 +34,14 @@ public class SocialController implements InitializingBean {
     @RequestMapping("/login/gitee")
     public JapResponse renderAuth(HttpServletRequest request, HttpServletResponse response) {
         JapConfigContext.strategy = "social";
-        SocialConfig config = new SocialConfig();
-        // platform 参考 justauth#AuthDefaultSource
-        // 如果包含通过 justauth 自定义的第三方平台，则该值为实现 AuthSource 后的 getName() 值
-        config.setPlatform("gitee");
-        config.setState(UuidUtils.getUUID());
-        config.setJustAuthConfig(AuthConfig.builder()
-                .clientId("39c8b2aba936a1638cb245b899b24ba8f3ad798e6bb4a08ab645d7a1571b41a2")
-                .clientSecret("c621f97d07854826fc48bb6d095951fd73b354b352ea3073a08ad20304a1f3f2")
-                .redirectUri("http://sso.jap.com:8080/callback/social")
-                .build());
-        return socialStrategy.authenticate(config, request, response);
+        return socialStrategy.authenticate(new SocialConfig()
+                .setPlatform("wechat_open")
+                .setState(UuidUtils.getUUID())
+                .setJustAuthConfig(AuthConfig.builder()
+                        .clientId("39c8b2aba936a1638cb245b899b24ba8f3ad798e6bb4a08ab645d7a1571b41a2")
+                        .clientSecret("c621f97d07854826fc48bb6d095951fd73b354b352ea3073a08ad20304a1f3f2")
+                        .redirectUri("http://sso.jap.com:8080/callback/social")
+                        .build()), request, response);
     }
 
     /**

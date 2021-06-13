@@ -59,7 +59,7 @@
                 <ul class="list-unstyled mb-0 pl-2">
                   <li>
                     <img src="https://cdn.jsdelivr.net/gh/justauth/justauth-oauth-logo@1.5/gitee.png" alt="" style="width: 20px;position: relative;top: -2px;;" class="mr-1">
-                    <a href="javascript:;;" @click="socialLogin">Gitee 登录</a>
+                    <a href="javascript:;;" @click="socialLogin('gitee')">Gitee 登录</a>
                   </li>
                 </ul>
               </div>
@@ -170,10 +170,10 @@ export default {
         this.error = (error.name ? error.name + ': ' : '') + error.message
       }
     },
-    async socialLogin () {
+    async socialLogin (platform) {
       try {
         const result = await this.$http.post(
-            '/api/social/login/gitee'
+            '/api/social/login/' + platform
         )
         const data = result.data
         console.log(data)

@@ -31,7 +31,7 @@ export default new Router({
       },
       children: [
         {
-          path: 'social',
+          path: 'social/:platform',
           name: 'social',
           component: socialCallback
         },

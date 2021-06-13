@@ -63,6 +63,13 @@
 127.0.0.1 sso2.jap.com
 127.0.0.1 sso3.jap.com
 ```
+
+### 启动 ids 服务（可选）
+
+如果开发者已经准备好了 OAuth 2.0 服务端，可以忽略该步。
+
+如果开发者本地没有可以使用的 OAuth 2.0 服务端，那么可以使用 [https://gitee.com/fujieid/jap-ids-demo](https://gitee.com/fujieid/jap-ids-demo) 项目搭建一个 OAuth 2.0 服务器。jap-ids-demo 可以应用于 OAuth 2.0 和 OIDC 协议的登录测试。
+
 ### 启动服务端项目
 
 通过 `JapDemoVueApplication` 启动 Java 服务端项目

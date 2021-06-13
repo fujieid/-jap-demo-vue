@@ -36,18 +36,16 @@ public class OidcController implements InitializingBean {
     @RequestMapping("/login/jai")
     public JapResponse renderAuth(HttpServletRequest request, HttpServletResponse response) throws IOException {
         JapConfigContext.strategy = "oidc";
-        OidcConfig config = new OidcConfig();
-        // 配置 OIDC 的 Issue 链接
-        config.setIssuer("xx")
+        return oidcStrategy.authenticate(new OidcConfig()
+                .setIssuer("http://localhost:8081")
                 .setPlatform("jai")
                 .setState(UuidUtils.getUUID())
-                .setClientId("xx")
-                .setClientSecret("xx")
+                .setClientId("ieh5qufg4djbbjlz2hp2a1g6gysr7l4h")
+                .setClientSecret("k4eapuumzn8jo14u6epl7w1s2rv0ja8ri5wsl2vf")
                 .setCallbackUrl("http://sso.jap.com:8080/callback/oidc")
                 .setScopes(new String[]{"read", "write"})
                 .setResponseType(Oauth2ResponseType.code)
-                .setGrantType(Oauth2GrantType.authorization_code);
-        return oidcStrategy.authenticate(config, request, response);
+                .setGrantType(Oauth2GrantType.authorization_code), request, response);
     }
 
     /**

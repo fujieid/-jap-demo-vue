@@ -39,17 +39,19 @@ public class Oauth2PasswordGrantController implements InitializingBean {
         OAuthConfig config = new OAuthConfig();
         config.setPlatform("jai")
                 .setState(UuidUtils.getUUID())
-                .setClientId("xx")
-                .setClientSecret("xx")
-                .setCallbackUrl("http://sso.jap.com:8080/callback/oauthPassword")
-                .setTokenUrl("xx")
-                .setUserinfoUrl("xx")
+                .setClientId("ieh5qufg4djbbjlz2hp2a1g6gysr7l4h")
+                .setClientSecret("k4eapuumzn8jo14u6epl7w1s2rv0ja8ri5wsl2vf")
+                .setCallbackUrl("http://sso.jap.com:8080/callback/oauth")
+                // 密码模式，不需要授权端链接
+//                .setAuthorizationUrl("http://localhost:8081/oauth/authorize")
+                .setTokenUrl("http://localhost:8081/oauth/token")
+                .setUserinfoUrl("http://localhost:8081/oauth/userinfo")
                 .setScopes(new String[]{"read", "write"})
                 // GrantType 设为 password
                 .setGrantType(Oauth2GrantType.password)
                 // 指定账号密码
-                .setUsername("xx")
-                .setPassword("xx");
+                .setUsername("fujietest")
+                .setPassword("123456");
         return oauth2Strategy.authenticate(config, request, response);
     }
 
