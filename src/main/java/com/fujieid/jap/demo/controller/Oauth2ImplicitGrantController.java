@@ -4,6 +4,7 @@ import com.fujieid.jap.core.JapUserService;
 import com.fujieid.jap.core.result.JapResponse;
 import com.fujieid.jap.demo.config.JapConfigContext;
 import com.fujieid.jap.oauth2.OAuthConfig;
+import com.fujieid.jap.oauth2.Oauth2EndpointMethodType;
 import com.fujieid.jap.oauth2.Oauth2ResponseType;
 import com.fujieid.jap.oauth2.Oauth2Strategy;
 import me.zhyd.oauth.utils.UuidUtils;
@@ -39,13 +40,15 @@ public class Oauth2ImplicitGrantController implements InitializingBean {
         OAuthConfig config = new OAuthConfig();
         config.setPlatform("jai")
                 .setState(UuidUtils.getUUID())
-                .setClientId("ieh5qufg4djbbjlz2hp2a1g6gysr7l4h")
-                .setClientSecret("k4eapuumzn8jo14u6epl7w1s2rv0ja8ri5wsl2vf")
+                .setClientId("test2")
+                .setClientSecret("test2")
                 .setCallbackUrl("http://sso.jap.com:8080/callback/oauth")
                 .setAuthorizationUrl("http://localhost:8081/oauth/authorize")
                 .setTokenUrl("http://localhost:8081/oauth/token")
                 .setUserinfoUrl("http://localhost:8081/oauth/userinfo")
                 .setScopes(new String[]{"read", "write"})
+                .setAccessTokenEndpointMethodType(Oauth2EndpointMethodType.GET)
+                .setUserInfoEndpointMethodType(Oauth2EndpointMethodType.GET)
                 // 修改 ResponseType 为 Token 模式
                 .setResponseType(Oauth2ResponseType.token);
         return oauth2Strategy.authenticate(config, request, response);
