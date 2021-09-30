@@ -42,7 +42,7 @@ public class Oauth2ImplicitGrantController implements InitializingBean {
                 .setState(UuidUtils.getUUID())
                 .setClientId("test2")
                 .setClientSecret("test2")
-                .setCallbackUrl("http://sso.jap.com:8080/callback/oauth")
+                .setCallbackUrl("http://sso.jap.com:8080/callback/oauthImplicit")
                 .setAuthorizationUrl("http://localhost:8081/oauth/authorize")
                 .setTokenUrl("http://localhost:8081/oauth/token")
                 .setUserinfoUrl("http://localhost:8081/oauth/userinfo")
