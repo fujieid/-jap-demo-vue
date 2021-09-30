@@ -4,6 +4,7 @@ import com.fujieid.jap.core.JapUserService;
 import com.fujieid.jap.core.result.JapResponse;
 import com.fujieid.jap.demo.config.JapConfigContext;
 import com.fujieid.jap.oauth2.OAuthConfig;
+import com.fujieid.jap.oauth2.Oauth2EndpointMethodType;
 import com.fujieid.jap.oauth2.Oauth2GrantType;
 import com.fujieid.jap.oauth2.Oauth2Strategy;
 import me.zhyd.oauth.utils.UuidUtils;
@@ -39,8 +40,8 @@ public class Oauth2PasswordGrantController implements InitializingBean {
         OAuthConfig config = new OAuthConfig();
         config.setPlatform("jai")
                 .setState(UuidUtils.getUUID())
-                .setClientId("ieh5qufg4djbbjlz2hp2a1g6gysr7l4h")
-                .setClientSecret("k4eapuumzn8jo14u6epl7w1s2rv0ja8ri5wsl2vf")
+                .setClientId("test")
+                .setClientSecret("test")
                 .setCallbackUrl("http://sso.jap.com:8080/callback/oauth")
                 // 密码模式，不需要授权端链接
 //                .setAuthorizationUrl("http://localhost:8081/oauth/authorize")
@@ -49,8 +50,10 @@ public class Oauth2PasswordGrantController implements InitializingBean {
                 .setScopes(new String[]{"read", "write"})
                 // GrantType 设为 password
                 .setGrantType(Oauth2GrantType.password)
+                .setAccessTokenEndpointMethodType(Oauth2EndpointMethodType.GET)
+                .setUserInfoEndpointMethodType(Oauth2EndpointMethodType.GET)
                 // 指定账号密码
-                .setUsername("fujietest")
+                .setUsername("test")
                 .setPassword("123456");
         return oauth2Strategy.authenticate(config, request, response);
     }
